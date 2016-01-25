@@ -14,6 +14,6 @@ This is an ATG plugin for eclipse that provides useful tools to develop with ATG
 - Create rebel.xml files into ATG Eclipse Project for JRebel support.
   - After Eclipse project has been created
   - Select the option "Generate rebel.xml"
-  - The Plugin create rebel.xml files in the project
+  - The Plugin create the rebel.xml files in the project
 
   
