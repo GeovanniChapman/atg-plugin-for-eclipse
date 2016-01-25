@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ATG_Commerce
+Bundle-SymbolicName: ATG_Commerce;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.resources,
+ org.eclipse.jdt.core,
+ org.eclipse.equinox.registry,
+ org.jdom,
+ org.eclipse.ui.console,
+ org.eclipse.equinox.preferences,
+ org.eclipse.jdt.launching,
+ org.eclipse.core.runtime;bundle-version="3.11.1",
+ org.eclipse.jdt.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

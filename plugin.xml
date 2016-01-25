@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="ATG Category"
+            id="ATG_Commerce.commands.category">
+      </category>
+      <command
+            name="ATG Module To Project"
+            categoryId="ATG_Commerce.commands.category"
+            id="ATG_Commerce.commands.ATGModuleToProjectCommand">
+      </command>
+      <command
+            name="Generate rebel.xml"
+            categoryId="ATG_Commerce.commands.category"
+            id="ATG_Commerce.commands.JRebelGenerateXMLCommand">
+      </command>
+      <command
+            name="Preferences..."
+            categoryId="ATG_Commerce.commands.category"
+            id="ATG_Commerce.commands.GeneralSettingCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="ATG_Commerce.commands.ATGModuleToProjectCommand"
+            class="org.geochapm.atg.handlers.ATGModuleToProjectHandler">
+      </handler>
+      <handler
+            commandId="ATG_Commerce.commands.JRebelGenerateXMLCommand"
+            class="org.geochapm.atg.handlers.JRebelGenerateXMLHandler">
+      </handler>
+      <handler
+            commandId="ATG_Commerce.commands.GeneralSettingCommand"
+            class="org.geochapm.atg.handlers.GeneralSettingHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ATG_Commerce.commands.ATGModuleToProjectCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="ATG Commerce"
+               mnemonic="M"
+               id="ATG_Commerce.menus.sampleMenu">
+            <command
+                  commandId="ATG_Commerce.commands.ATGModuleToProjectCommand"
+                  mnemonic="C"
+                  id="ATG_Commerce.menus.ATGModuleToProjectCommand">
+            </command>
+            <command
+                  commandId="ATG_Commerce.commands.GeneralSettingCommand"
+                  id="ATG_Commerce.menus.GeneralSettingCommand">
+            </command>
+         </menu>
+  		</menuContribution>
+  		<menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?after=additions">
+            <menu label="ATG Commerce">
+		      	<command commandId="ATG_Commerce.commands.JRebelGenerateXMLCommand">
+		     		<visibleWhen checkEnabled="false">
+	         			<with variable="activeMenuSelection">
+	         				<iterate ifEmpty="false">
+	         					<adapt type="org.eclipse.core.resources.IProject">
+	         						<test property="org.eclipse.core.resources.projectNature" value="org.eclipse.jdt.core.javanature"/>
+	         					</adapt>
+	         				</iterate>
+	         			</with>         			         			
+	         		</visibleWhen>
+		      	</command>
+            </menu>
+        </menuContribution>
+        <menuContribution locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+            <menu label="ATG Commerce">
+                <command commandId="ATG_Commerce.commands.JRebelGenerateXMLCommand">
+		     		<visibleWhen checkEnabled="false">
+	         			<with variable="activeMenuSelection">
+	         				<iterate ifEmpty="false">
+	         					<adapt type="org.eclipse.core.resources.IProject">
+	         						<test property="org.eclipse.core.resources.projectNature" value="org.eclipse.jdt.core.javanature"/>
+	         					</adapt>
+	         				</iterate>
+	         			</with>         			         			
+	         		</visibleWhen>
+			      </command>
+            </menu>
+        </menuContribution>
+   </extension>
+
+</plugin>
